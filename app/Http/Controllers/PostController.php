@@ -126,6 +126,7 @@ class PostController extends Controller
         //delete post
         $post->delete();
 
+        //koment
         //redirect to index
         return redirect()->route('posts.index')->with(['success' => 'Data Berhasil Dihapus!']);
     }
