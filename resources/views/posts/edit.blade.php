@@ -46,7 +46,7 @@
                                     </div>
                                 @enderror
                             </div>
-
+                            <a href="{{ route('posts.index') }}" class="btn btn-md btn-primary">Kembali link</a>
                             <button type="submit" class="btn btn-md btn-primary">UPDATE</button>
                             <button type="reset" class="btn btn-md btn-warning">RESET</button>
 

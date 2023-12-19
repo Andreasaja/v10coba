@@ -21,6 +21,7 @@
                             {!! $post->content !!}
                         </p>
                     </div>
+                    <a href="{{ route('posts.index') }}" class="btn btn-md btn-primary">Kembali link</a>
                 </div>
             </div>
         </div>
