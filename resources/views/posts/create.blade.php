@@ -53,7 +53,9 @@
                                     </div>
                                 @enderror
                             </div>
-
+                            <a href="{{ route('posts.index') }}" class="btn btn-md btn-success mb-3">Kembali ..</a>
+                            <a href="{{ route('posts.index') }}" class="btn btn-md btn-primary">Kembali dua</a>
+                            <button class="btn btn-md btn-primary" >cb kembali</button>
                             <button type="submit" class="btn btn-md btn-primary">SIMPAN</button>
                             <button type="reset" class="btn btn-md btn-warning">RESET</button>
 
