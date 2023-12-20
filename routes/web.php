@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,3 +19,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::resource('/posts', \App\Http\Controllers\PostController::class);
+Route::resource('/akuns', \App\Http\Controllers\AkunController::class);
+Route::resource('/slipgajinya', \App\Http\Controllers\SlipGajiController::class);
+//dd('ini routes/web.php');
+

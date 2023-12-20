@@ -14,27 +14,41 @@ use Illuminate\Http\RedirectResponse;
 
 //import Facade "Storage"
 use Illuminate\Support\Facades\Storage;
-class PostController extends Controller
+
+//use Illuminate\Support\Facades\Log;
+class AkunController extends Controller
 {
+
+
+
 
      public function index(): View
     {
+        //$this->info("masuk Akuncontroller / index");
+        //error_log('masuk Akuncontroller / index.');
+       // Log::info('Showing the user profile for user: ');
+       // echo "This will never be executed.";
         //get posts
         $posts = Post::latest()->paginate(5);
-        //echo "This will never be executed.";
 
         //render view with posts
-        return view('posts.index', compact('posts'));
+        return view('akuns.index', compact('posts'));
     }
 
     public function create(): View
     {
-        return view('posts.create');
+
+        return view('akuns.create');
+
     }
 
 
     public function store(Request $request): RedirectResponse
     {
+        //$this->info("masuk Akuncontroller / create");
+        //echo("<script>console.log('PHP: ');</script>");
+        //print("aaaa");
+        //Log::info('Showing the user profile for user: ');
         //validate form
         $this->validate($request, [
             'image'     => 'required|image|mimes:jpeg,jpg,png|max:2048',
@@ -54,16 +68,16 @@ class PostController extends Controller
         ]);
 
         //redirect to index
-        return redirect()->route('posts.index')->with(['success' => 'Data Berhasil Disimpan!']);
+        return redirect()->route('akuns.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
     public function show(string $id): View
     {
         //get post by ID
         $post = Post::findOrFail($id);
-
+        //Log::info('Showing the user profile for user: ');
         //render view with post
-        return view('posts.show', compact('post'));
+        return view('akuns.show', compact('akun'));
     }
 
     public function edit(string $id): View
@@ -72,7 +86,7 @@ class PostController extends Controller
         $post = Post::findOrFail($id);
 
         //render view with post
-        return view('posts.edit', compact('post'));
+        return view('akuns.edit', compact('akun'));
     }
 
     public function update(Request $request, $id): RedirectResponse
@@ -92,10 +106,10 @@ class PostController extends Controller
 
             //upload new image
             $image = $request->file('image');
-            $image->storeAs('public/posts', $image->hashName());
+            $image->storeAs('public/akuns', $image->hashName());
 
             //delete old image
-            Storage::delete('public/posts/'.$post->image);
+            Storage::delete('public/akuns/'.$post->image);
 
             //update post with new image
             $post->update([
@@ -114,7 +128,7 @@ class PostController extends Controller
         }
 
         //redirect to index
-        return redirect()->route('posts.index')->with(['success' => 'Data Berhasil Diubah!']);
+        return redirect()->route('akuns.index')->with(['success' => 'Data Berhasil Diubah!']);
     }
     public function destroy($id): RedirectResponse
     {
@@ -122,13 +136,13 @@ class PostController extends Controller
         $post = Post::findOrFail($id);
 
         //delete image
-        Storage::delete('public/posts/'. $post->image);
+        Storage::delete('public/akuns/'. $post->image);
 
         //delete post
         $post->delete();
 
         //koment
         //redirect to index
-        return redirect()->route('posts.index')->with(['success' => 'Data Berhasil Dihapus!']);
+        return redirect()->route('akuns.index')->with(['success' => 'Data Berhasil Dihapus!']);
     }
 }
