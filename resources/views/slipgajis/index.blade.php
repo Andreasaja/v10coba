@@ -1,3 +1,5 @@
+@include('criptpertext')
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,28 +29,36 @@
                             <thead>
                               <tr>
                                 <th scope="col">No</th>
-                                <th scope="col">JUDUL</th>
-                                <th scope="col">CONTENT</th>
-                                <th scope="col">AKSI</th>
+                                <th scope="col">Periode</th>
+                                <th scope="col">Kode</th>
+                                <th scope="col">Nama</th>
+                                <th scope="col">Perusahaan</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Gapok</th>
                               </tr>
                             </thead>
                             <tbody>
                                 <?php $number = 1; ?>
                               @forelse ($posts as $post)
                                 <tr>
-                                    <td class="text-center">
+                                    <td class="text-center">{{ ($posts->currentPage() - 1)  * $posts->links()->paginator->perPage() + $loop->iteration }}</td>
+                                    <?php $number++; ?>
+                                    {{-- <td class="text-center"></td> --}}
                                         {{-- <img src="{{ asset('/storage/posts/'.$post->image) }}" class="rounded" style="width: 150px"> --}}
                                         {{-- <td>{{ $number }}</td> --}}
-                                        <td class="text-center">{{ ($posts->currentPage() - 1)  * $posts->links()->paginator->perPage() + $loop->iteration }}</td>
-
-                                        <?php $number++; ?>
-                                    </td>
 
                                     <td>{{ $post->periode }}</td>
-                                    <td>{!! $post->nama !!}</td>
+                                    <td>{{ $post->kode }}</td>
+                                    <td>{{ $post->nama }}</td>
+                                    <td>{{ $post->perusahaan }}</td>
+                                    <td>{{ $post->email }}</td>
+                                    <td>
+
+                                        {!! $post->gapok !!}</td>
+
                                     <td class="text-center">
                                         <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="" method="POST">
-                                            <a href="" class="btn btn-sm btn-dark">SHOW</a>
+                                            <a href="" class="btn btn-sm btn-dark">Email</a>
                                             <a href="" class="btn btn-sm btn-primary">EDIT</a>
                                             @csrf
                                             @method('DELETE')

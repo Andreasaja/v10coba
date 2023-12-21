@@ -11,7 +11,10 @@ class Slipgaji extends Model
 
     protected $fillable = [
         'periode',
+        'kode',
         'nama',
+        'perusahaan',
         'email',
+        'gapok',
     ];
 }
