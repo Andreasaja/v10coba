@@ -1,4 +1,4 @@
-@include('criptpertext')
+
 
 
 <!DOCTYPE html>
@@ -58,7 +58,8 @@
 
                                     <td class="text-center">
                                         <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="" method="POST">
-                                            <a href="" class="btn btn-sm btn-dark">Email</a>
+                                            {{-- <a href="{{ route('SlipGaji.femail') }}" class="btn btn-sm btn-dark">Email</a> --}}
+                                            <a href="{{ route('send-mail.index', $post->id) }}" class="btn btn-sm btn-dark">SHOW</a>
                                             <a href="" class="btn btn-sm btn-primary">EDIT</a>
                                             @csrf
                                             @method('DELETE')

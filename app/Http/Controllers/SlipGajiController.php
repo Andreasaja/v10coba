@@ -39,6 +39,12 @@ class SlipGajiController extends Controller
           //  'users' => DB::table('posts')->paginate(15)
         //]);
     }
+    public function show(string $id): View
+    {
+        //get post by ID
+        $post = SlipGaji::findOrFail($id);
 
-
+        //render view with post
+        return view('emails.demoMail', compact('post'));
+    }
 }
