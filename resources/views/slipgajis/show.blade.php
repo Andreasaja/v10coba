@@ -60,8 +60,7 @@
                                         <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="" method="POST">
                                             {{-- <a href="{{ route('send-mail.index', $post->idxsg) }}" class="btn btn-sm btn-dark">SHOW</a> --}}
                                             {{-- <a href="{{ route('slipgajinya.destroy', $post->id) }}" class="btn btn-sm btn-dark">SHOW</a> --}}
-                                            {{-- <a href="/send-email/{{$post->nama}}" class="btn btn-sm btn-dark">SHOW</a> --}}
-                                            <a href="{{ route('send-mail.show', $post->idxsg) }}" class="btn btn-sm btn-dark">SHOW</a>
+                                            <a href="{{ route('send-mail.show', $post->nama) }}" class="btn btn-sm btn-dark">SHOW</a>
 
                                             <a href="" class="btn btn-sm btn-primary">EDIT</a>
                                             @csrf

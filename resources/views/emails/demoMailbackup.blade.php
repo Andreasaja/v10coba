@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>ini judul views/slipgajis/iniDemoMail</title>
+    <title>ini judul views/emails</title>
 </head>
 <body>
     <h1>{{ $mailData['title'] }}</h1>
     <p>{{ $mailData['body'] }}</p>
+
+
 
     <p>ini body tmbahan
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -16,5 +18,6 @@
     proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
     <p>Thank you</p>
+
 </body>
 </html>

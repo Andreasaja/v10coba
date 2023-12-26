@@ -16,6 +16,9 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
 
 //use Illuminate\Support\Facades\Log;
+
+use Mail;
+use App\Mail\DemoMail;
 class SlipGajiController extends Controller
 {
 
@@ -39,12 +42,15 @@ class SlipGajiController extends Controller
           //  'users' => DB::table('posts')->paginate(15)
         //]);
     }
-    public function show(string $id): View
-    {
-        //get post by ID
-        $post = SlipGaji::findOrFail($id);
 
-        //render view with post
-        return view('emails.demoMail', compact('post'));
+    public function destroy(): RedirectResponse
+    {
+
+
+        //koment
+        //redirect to index
+        return redirect()->route('posts.index')->with(['success' => 'Data Berhasil Dihapus!']);
     }
+
+
 }

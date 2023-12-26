@@ -23,6 +23,7 @@ Route::resource('/posts', \App\Http\Controllers\PostController::class);
 Route::resource('/akuns', \App\Http\Controllers\AkunController::class);
 Route::resource('/slipgajinya', \App\Http\Controllers\SlipGajiController::class);
 Route::resource('/send-mail', \App\Http\Controllers\MailController::class);
+Route::get('/send-mail/{nama}', 'MailController@sendEmail');
 
 //dibawah ini contoh email yg sdh jalan
 //Route::get('send-mail', [MailController::class, 'index']);
