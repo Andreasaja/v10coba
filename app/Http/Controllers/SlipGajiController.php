@@ -36,6 +36,7 @@ class SlipGajiController extends Controller
         $posts = SlipGaji::latest()->paginate(10);
 
 
+
         //render view with posts
         return view('slipgajis.index', compact('posts'));
         //return view('slipgajis.index', [

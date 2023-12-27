@@ -37,13 +37,15 @@ class MailController extends Controller
         //get post by ID
         $postnya = SlipGaji::findOrFail($idxsg);
 
+
+
         $mailData = [
             'nama' => $postnya->nama,
             'kode' => $postnya->kode,
             'Periode' => $postnya->periode,
             'perusahaan' => $postnya->perusahaan,
             'nomorhp' => $postnya->nomorhp,
-            'gapok' => $postnya->gapok
+            'gapok' => number_format($postnya->tgapok())
 
 
 
@@ -53,7 +55,7 @@ class MailController extends Controller
         //render view with post
         //return view('slipgajis.index', compact('post'));
         //return view('slipgajis.index', compact('postnya'));
-        return back();
+        return back()->with(['success' => 'Email Berhasil Terkirim']);
     }
 
     public function sendEmail($nama)

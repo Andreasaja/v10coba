@@ -23,18 +23,55 @@
                 </div>
 
                 <div class="card border-0 shadow-sm rounded">
-                    <div class="card-body">
+                    <div class="card-body" class="md-card-content" style="overflow-x: auto;">
 
                         <table class="table table-bordered ">
                             <thead>
                               <tr>
                                 <th scope="col">No</th>
+                                <th scope="col">Kirim</th>
                                 <th scope="col">Periode</th>
                                 <th scope="col">Kode</th>
                                 <th scope="col">Nama</th>
                                 <th scope="col">Perusahaan</th>
                                 <th scope="col">Email</th>
-                                <th scope="col">Gapok</th>
+                                <th scope="col">Gaji Pokok</th>
+                                <th scope="col">Gaji Pk./hr.</th>
+                                <th scope="col">UM/hr.</th>
+                                <th scope="col">UT/hr.</th>
+                                <th scope="col">Hr.Krj.</th>
+                                <th scope="col">Lemb.1</th>
+                                <th scope="col">Lemb.2</th>
+                                <th scope="col">UM</th>
+                                <th scope="col">UT</th>
+                                <th scope="col">TK</th>
+                                <th scope="col">TL</th>
+                                <th scope="col">UL</th>
+                                <th scope="col">Free Text Pen.1</th>
+                                <th scope="col">Nom FTPen.1</th>
+                                <th scope="col">Free Text Pen.2</th>
+                                <th scope="col">Nom FTPen.2</th>
+                                <th scope="col">Free Text Pen.3</th>
+                                <th scope="col">Nom FTPen.3</th>
+                                <th scope="col">Free Text Pen.4</th>
+                                <th scope="col">Nom FTPen.4</th>
+                                <th scope="col">Free Text Pen.5</th>
+                                <th scope="col">Nom FTPen.5</th>
+                                <th scope="col">Free Text Pen.6</th>
+                                <th scope="col">Nom FTPen.6</th>
+                                <th scope="col">BPJS-TK</th>
+                                <th scope="col">BPJS-KS</th>
+                                <th scope="col">PPH 21</th>
+                                <th scope="col">Pinjaman</th>
+                                <th scope="col">Pot.Unp/Lev</th>
+                                <th scope="col">Terlambat</th>
+                                <th scope="col">Free Text Pot.1</th>
+                                <th scope="col">Nom FTPot.1</th>
+                                <th scope="col">Free Text Pot.2</th>
+                                <th scope="col">Nom FTPot.2</th>
+                                <th scope="col">Terima</th>
+
+
                               </tr>
                             </thead>
                             <tbody>
@@ -43,30 +80,59 @@
                                 <tr>
                                     <td class="text-center">{{ ($posts->currentPage() - 1)  * $posts->links()->paginator->perPage() + $loop->iteration }}</td>
                                     <?php $number++; ?>
-                                    {{-- <td class="text-center"></td> --}}
-                                        {{-- <img src="{{ asset('/storage/posts/'.$post->image) }}" class="rounded" style="width: 150px"> --}}
-                                        {{-- <td>{{ $number }}</td> --}}
-
+                                    <td>
+                                        <a href="{{ route('send-mail.show', $post->idxsg) }}" class="btn btn-sm btn-dark">Email</a>
+                                    </td>
                                     <td>{{ $post->periode }}</td>
                                     <td>{{ $post->kode }}</td>
                                     <td>{{ $post->nama }}</td>
                                     <td>{{ $post->perusahaan }}</td>
                                     <td>{{ $post->email }}</td>
-                                    <td>
+                                    <td>{{  number_format($post->tgapok())}}</td>
+                                    <td>{{  number_format($post->tgapokhr())}}</td>
+                                    <td>{{  number_format($post->tumaperhr())}}</td>
+                                    <td>{{  number_format($post->tutrperhr())}}</td>
+                                    <td>{{  number_format($post->thrkerja())}}</td>
+                                    <td>{{  number_format($post->tlembur1())}}</td>
+                                    <td>{{  $post->lembur2}}</td>
+                                    <td>{{  number_format($post->tuma())}}</td>
+                                    <td>{{  number_format($post->tutransport())}}</td>
+                                    <td>{{  number_format($post->ttunkeh())}}</td>
+                                    <td>{{  number_format($post->ttunlainnya())}}</td>
+                                    <td>{{  number_format($post->tulembur())}}</td>
+                                    <td>{{  $post->freetepe1}}</td>
+                                    <td>{{  number_format($post->tnomfreetepe1())}}</td>
+                                    <td>{{  $post->freetepe2}}</td>
+                                    <td>{{  number_format($post->tnomfreetepe2())}}</td>
+                                    <td>{{  $post->freetepe3}}</td>
+                                    <td>{{  number_format($post->tnomfreetepe3())}}</td>
+                                    <td>{{  $post->freetepe4}}</td>
+                                    <td>{{  number_format($post->tnomfreetepe4())}}</td>
+                                    <td>{{  $post->freetepe5}}</td>
+                                    <td>{{  number_format($post->tnomfreetepe5())}}</td>
+                                    <td>{{  $post->freetepe6}}</td>
+                                    <td>{{  number_format($post->tnomfreetepe6())}}</td>
+                                    <td>{{  number_format($post->tbpjstk())}}</td>
+                                    <td>{{  number_format($post->tbpjsks())}}</td>
+                                    <td>{{  number_format($post->tpph21())}}</td>
+                                    <td>{{  number_format($post->tpinjaman())}}</td>
+                                    <td>{{  number_format($post->tpotunle())}}</td>
+                                    <td>{{  number_format($post->tterlambat())}}</td>
+                                    <td>{{  $post->freetepo1}}</td>
+                                    <td>{{  number_format($post->tnomfreetepo1())}}</td>
+                                    <td>{{  $post->freetepo2}}</td>
+                                    <td>{{  number_format($post->tnomfreetepo2())}}</td>
+                                    <td>{{  number_format($post->ttotal())}}</td>
 
-                                        {!! $post->gapok !!}</td>
+
 
                                     <td class="text-center">
                                         <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="" method="POST">
                                             {{-- <a href="{{ route('send-mail.index', $post->idxsg) }}" class="btn btn-sm btn-dark">SHOW</a> --}}
                                             {{-- <a href="{{ route('slipgajinya.destroy', $post->id) }}" class="btn btn-sm btn-dark">SHOW</a> --}}
                                             {{-- <a href="/send-email/{{$post->nama}}" class="btn btn-sm btn-dark">SHOW</a> --}}
-                                            <a href="{{ route('send-mail.show', $post->idxsg) }}" class="btn btn-sm btn-dark">SHOW</a>
+                                            <a href="{{ route('send-mail.show', $post->idxsg) }}" class="btn btn-sm btn-dark">Email</a>
 
-                                            <a href="" class="btn btn-sm btn-primary">EDIT</a>
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
                                         </form>
                                     </td>
                                 </tr>
@@ -82,10 +148,12 @@
                           {{-- {{ $posts->links() }} --}}
                           {{-- {!! $posts->withQueryString()->links() !!} --}}
 
-                          {!! $posts->withQueryString()->links('pagination::bootstrap-5') !!}
+                          {{-- {!! $posts->withQueryString()->links('pagination::bootstrap-5') !!} --}}
 
                         {{-- -------------------- --}}
                     </div>
+                    {!! $posts->withQueryString()->links('pagination::bootstrap-5') !!}
+
                 </div>
             </div>
         </div>
