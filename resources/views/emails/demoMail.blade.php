@@ -1,70 +1,169 @@
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Data Posts</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-</head>
-<body style="background: lightgray">
+    <head>
+        <style>
+        table{
+        width: 100%;
+        border-collapse:collapse;
+        border: 1px solid black;
+        }
+        table td{line-height:25px;padding-left:15px;}
+        table th{background-color:#fbc403; color:#363636;}
+        </style>
 
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-12">
-                <div>
-                    <h3 class="text-center my-4">coba listview</h3>
-                    {{-- <h5 class="text-center"><a href="https://santrikoding.com">www.santrikoding.com</a></h5> --}}
-                    <hr>
-                </div>
+    </head>
+    <body>
+        <table border="1">
+            <tr height="100px" style="background-color:#363636;color:#ffffff;text-align:center;font-size:24px; font-weight:600;">
+                <td colspan='4'>SLIP GAJI</td>
+            </tr>
+            <tr>
+                <th>Nama:</th>
+                <td>{{ $mailData['nama'] }}</td>
+                <th></th>
+                <td></td>
+            </tr>
+        <!-----2 row--->
+            <tr>
+                <th>Perusahaan</th>
+                <td>{{ $mailData['perusahaan'] }}</td>
+                <th>Periode</th>
+                <td>{{ $mailData['Periode'] }}</td>
+            </tr>
 
-                <div class="card border-0 shadow-sm rounded">
-                    <div class="card-body">
+        </table>
+            <tr></tr>
+            <br/>
+        <table border="1">
+            <tr>
+                <th >DATA</th>
+                <th>Amount</th>
 
-                        <table class="table table-bordered ">
-                            <thead>
-                              <tr>
-                                <th scope="col">Nama</th>
-                                <th scope="col">Periode</th>
-                                <th scope="col">Kode</th>
-                                <th scope="col">Nama</th>
-                                <th scope="col">Perusahaan</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Gapok</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="col">{{ $mailData['nama'] }}</th>
-                                    <th scope="col">{{ $mailData['kode'] }}</th>
-                                    <th scope="col">{{ $mailData['perusahaan'] }}</th>
-                                    <th scope="col">{{ $mailData['nomorhp'] }}</th>
-                                    <th scope="col">{{ $mailData['gapok'] }}</th>
-                                 </tr>
+            </tr>
+            <tr>
+                <td>Gaji Pokok</td>
+                <td>{{ $mailData['gapok'] }}</td>
 
-                                {{-- <h4>{{ $postnya->nama  }}</h4> --}}
-                            </tbody>
-                          </table>
+            </tr>
+            <tr>
+                <td>Gaji Pokok/hr</td>
+                <td>{{ $mailData['gapokhr'] }}</td>
 
-                          {{-- pagenation nya --}}
-                          {{-- {{ $posts->links() }} --}}
-                          {{-- {!! $posts->withQueryString()->links() !!} --}}
+            </tr>
+            <tr>
+                <td>Uang Makan/hr</td>
+                <td>{{ $mailData['umaperhr'] }}</td>
+
+            </tr>
+            <tr>
+                <td>Uang Tranport/hr</td>
+                <td>{{ $mailData['utrperhr'] }}</td>
+            </tr>
+            <tr>
+                <td>Hari kerja</td>
+                <td>{{ $mailData['hrkerja'] }}</td>
+            </tr>
+            <tr>
+                <td>Lembur 1</td>
+                <td>{{ $mailData['lembur1'] }}</td>
+            </tr>
+            <tr>
+                <td>Lembur 2</td>
+                <td>{{ $mailData['lembur2'] }}</td>
+            </tr>
+
+            <tr>
+                <th>PENDAPATAN</th>
+                <th>Amount</th>
+                <th>PENDAPATAN</th>
+                <th>Amount</th>
+            </tr>
+            <tr>
+                <td>Gaji Pokok</td>
+                <td>{{ $mailData['gapok'] }}</td>
+                <td>Insentif Target : {{ $mailData['freetepe1'] }}</td>
+                <td>{{ $mailData['nomfreetepe1'] }}</td>
+            </tr>
+            <tr>
+                <td>Uang Makan</td>
+                <td>{{ $mailData['uma'] }}</td>
+                <td>Insentif Target : {{ $mailData['freetepe2'] }}</td>
+                <td>{{ $mailData['nomfreetepe2'] }}</td>
+            </tr>
+            <tr>
+                <td>Uang Transport</td>
+                <td>{{ $mailData['utransport'] }}</td>
+                <td>Insentif Target : {{ $mailData['freetepe3'] }}</td>
+                <td>{{ $mailData['nomfreetepe3'] }}</td>
+            </tr>
+            <tr>
+                <td>Tunjangan Kehadiran</td>
+                <td>{{ $mailData['tunkeh'] }}</td>
+                <td>Insentif Target : {{ $mailData['freetepe4'] }}</td>
+                <td>{{ $mailData['nomfreetepe4'] }}</td>
+            </tr>
+            <tr>
+                <td>Tunjangan Lainnya</td>
+                <td>{{ $mailData['tunlainnya'] }}</td>
+                <td>Insentif Target : {{ $mailData['freetepe5'] }}</td>
+                <td>{{ $mailData['nomfreetepe5'] }}</td>
+            </tr>
+            <tr>
+                <td>Uang Lembur</td>
+                <td>{{ $mailData['ulembur'] }}</td>
+                <td>Insentif Target : {{ $mailData['freetepe6'] }}</td>
+                <td>{{ $mailData['nomfreetepe6'] }}</td>
+            </tr>
 
 
-                        {{-- -------------------- --}}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+            <tr>
+                <td></td>
+                <td><strong>TOTAL PENDAPATAN</strong></td>
+                <td><strong>{{ $mailData['totalpen'] }}</strong></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>POTONGAN</th>
+                <th>Amount</th>
+                <th>POTONGAN</th>
+                <th>Amount</th>
+            </tr>
+            <tr>
+                <td>BPJS TK</td>
+                <td>{{ $mailData['bpjstk'] }}</td>
+                <td>Pinjaman</td>
+                <td>{{ $mailData['pinjaman'] }}</td>
+            </tr>
+            <tr>
+                <td>BPJS KS</td>
+                <td>{{ $mailData['bpjsks'] }}</td>
+                <td>Unpaid/Leave</td>
+                <td>{{ $mailData['potunle'] }}</td>
+            </tr>
+            <tr>
+                <td>PPH 21</td>
+                <td>{{ $mailData['pph21'] }}</td>
+                <td>Terlambat</td>
+                <td>{{ $mailData['terlambat'] }}</td>
+            </tr>
+            <tr>
+                <td>Potongan 1 : {{ $mailData['freetepo1'] }}</td>
+                <td>{{ $mailData['nomfreetepo1'] }}</td>
+                <td>Potongan 2 : {{ $mailData['freetepo2'] }}</td>
+                <td>{{ $mailData['nomfreetepo2'] }}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><strong>TOTAL POTONGAN</strong></td>
+                <td><strong>{{ $mailData['totalpot'] }}</strong></td>
+                <td></td>
+            </tr>
+            <tr>
 
+                <th colspan="2" ><strong>TOTAL TERIMA</strong></th>
+                <th colspan="2" ><strong>{{ $mailData['total'] }}</strong></th>
 
-
-</body>
+            </tr>
+        </table>
+    </body>
 </html>
